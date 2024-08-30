@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('missions', function (Blueprint $table) {
             $table->id();
-            $table->string('lib');
-            $table->longText('consigne');
+            $table->string('code')->nullable();
+            $table->string('lib')->nullable();
+            $table->longText('consigne')->nullable();
             $table->date('date_signature');
-            $table->string('lieu');
+            $table->string('lieu')->nullable();
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->string('tache');
-            $table->foreignId('personnels_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('tache')->nullable();
+            $table->foreignId('personnel_missions_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

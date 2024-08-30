@@ -10,4 +10,9 @@ class PagesController extends Controller
     {
         return view('pages.auth.login');
     }
+
+    public function dash()
+    {
+        return view('pages.dashboard');
+    }
 }
