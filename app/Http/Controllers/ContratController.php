@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contrat;
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 
 class ContratController extends Controller
@@ -22,7 +23,8 @@ class ContratController extends Controller
      */
     public function create()
     {
-        return view('pages.contrat.engagement');
+        $personnels = Personnel::all();
+        return view('pages.contrat.engagement', compact('personnels'));
     }
 
     /**
@@ -39,7 +41,7 @@ class ContratController extends Controller
             'personnels_id' => $request->personnels_id,
         ]);
 
-        return redirect()->back();
+        return redirect()->route('gestion_contrat.index');
     }
 
     /**
@@ -50,6 +52,16 @@ class ContratController extends Controller
         $finds = Contrat::find($id);
         return view('pages.contrat.detail', compact('finds'));
     }
+
+  /**
+     * Display the specified resource.
+     */
+    public function print(string $id)
+    {
+        $finds = Contrat::find($id);
+        return view('pages.contrat.impression', compact('finds'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

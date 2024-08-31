@@ -11,4 +11,8 @@ class Contrat extends Model
     protected $guarded = [
 
     ];
+
+    function Agent() {
+        return $this->belongsTo(Personnel::class, 'personnels_id');
+    }
 }

@@ -26,6 +26,8 @@ Route::get('/', [PagesController::class, 'index'])->name('authentification');
 Route::post('seconnecter', [AuthController::class, 'login'])->name('login');
 Route::post('sedeconnecter', [AuthController::class, 'logout'])->name('logout');
 Route::get('dashboard', [PagesController::class, 'dash'])->name('dashboard');
+Route::get('imprimer_contrat/{id}', [ContratController::class, 'print']);
+
 
 Route::resource('gestion_personnel', PersonnelController::class);
 Route::resource('gestion_mission', MissionController::class);

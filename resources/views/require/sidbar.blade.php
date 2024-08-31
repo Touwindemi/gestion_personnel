@@ -21,24 +21,24 @@
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseError1" aria-expanded="false" aria-controls="pagesCollapseError">
+                        data-bs-target="#pagesCollapseError2" aria-expanded="false" aria-controls="pagesCollapseError">
                         <div class="nav-link-icon"><i data-feather="repeat"></i></div>
                         MISSION
                         <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="pagesCollapseError1" data-bs-parent="#accordionSidenavPagesMenu">
+                    <div class="collapse" id="pagesCollapseError2" data-bs-parent="#accordionSidenavPagesMenu">
                         <nav class="sidenav-menu-nested nav">
                             <a class="nav-link" href="{{ route('gestion_mission.create') }}">Programmer mission</a>
                             <a class="nav-link" href="{{ route('gestion_mission.index') }}">Liste des mission</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseError1" aria-expanded="false" aria-controls="pagesCollapseError">
+                        data-bs-target="#pagesCollapseError3" aria-expanded="false" aria-controls="pagesCollapseError">
                         <div class="nav-link-icon"><i data-feather="repeat"></i></div>
                         CONTRAT
                         <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="pagesCollapseError1" data-bs-parent="#accordionSidenavPagesMenu">
+                    <div class="collapse" id="pagesCollapseError3" data-bs-parent="#accordionSidenavPagesMenu">
                         <nav class="sidenav-menu-nested nav">
                             <a class="nav-link" href="{{ route('gestion_contrat.create') }}">Signer un contrat</a>
                             <a class="nav-link" href="{{ route('gestion_contrat.index') }}">Liste des contractuels</a>

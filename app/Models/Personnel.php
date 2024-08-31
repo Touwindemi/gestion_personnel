@@ -11,4 +11,15 @@ class Personnel extends Model
     protected $guarded = [
 
     ];
+
+    function Contrat() {
+        return $this->hasOne(Contrat::class);
+    }
+
+    public function missions()
+    {
+        return $this->belongsToMany(Mission::class, 'mission_personnel')
+            ->withPivot('role', 'task')
+            ->withTimestamps();
+    }
 }

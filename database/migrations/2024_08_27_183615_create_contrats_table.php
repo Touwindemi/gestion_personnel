@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->longText('contenu');
-            $table->string('nature');
-            $table->date('date_signature');
-            $table->string('statut');
+            $table->string('code')->nullable();
+            $table->longText('contenu')->nullable();
+            $table->string('nature')->nullable();
+            $table->date('date_signature')->nullable();
+            $table->string('statut')->nullable();
             $table->foreignId('personnels_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
