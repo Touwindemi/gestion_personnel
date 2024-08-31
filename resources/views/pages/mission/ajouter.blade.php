@@ -133,8 +133,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <button type="button" class="btn btn-danger remove-personnel m-3">Supprimer</button>
-                                                                <button type="button" class="btn btn-success m-3" id="add-personnel">Ajouter plus de personnel</button>
+                                                                <button type="button" class="btn btn-danger remove-personnel m-3">X</button>
+                                                                <button type="button" class="btn btn-success m-3" id="add-personnel">+</button>
                                                             </div>
                                                         </div>
                                                     </div>
