@@ -71,7 +71,8 @@ class MissionController extends Controller
         }
     }
 
-    return redirect()->route('gestion_mission.index')->with('success', 'Mission ajoutée avec succès');
+    emotify('success', 'Mission ajoutée avec success !');
+    return redirect()->route('gestion_mission.index');
     }
 
     /**

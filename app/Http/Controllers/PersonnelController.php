@@ -61,6 +61,7 @@ class PersonnelController extends Controller
             'photo' => $request->photo->store('photos_personnel', 'public'),
         ]);
 
+        emotify('success', 'Agent ajouté avec success !');
         return redirect()->back();
     }
 

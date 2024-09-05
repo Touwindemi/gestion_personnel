@@ -315,7 +315,7 @@
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Photo</label>
-                                                            <input class="form-control" type="file" name="photo" />
+                                                            <input class="form-control" type="file" name="photo" required />
                                                         </div>
                                                     </div>
                                                 </div>

@@ -113,7 +113,7 @@
                                             @csrf
                                             <div class="p-2 m-1" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
                                                 <h3 class="m-2 text-center text-danger">Veuillez renseigner les
-                                                    informations du contrat
+                                                    informations du paiement
                                                 </h3>
                                                 <p class="mb-5">NB: les champs ayant des * en couleur rouge sont obligatoires </p>
                                                 <div class="row m-2" style="border: 2px solid rgb(48, 56, 126); border-radius: 5px;">

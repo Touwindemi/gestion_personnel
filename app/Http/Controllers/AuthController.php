@@ -10,18 +10,16 @@ class AuthController extends Controller
     public function login (Request $request) {
         if (Auth::attempt(['login' => $request->login, 'password' => $request->password])) {
             if (Auth::user()){
-               // emotify('success', 'BIENVENUE ! Vous etes bien connecté !');
+                emotify('success', 'BIENVENUE ! Vous etes bien connecté !');
                 return redirect()->route('dashboard');
             }
              else {
-                // notify()->error('Login ou mot de passe incorrect !');
-                //emotify('error', 'Login ou mot de passe incorrect !');
+                emotify('error', 'Login ou mot de passe incorrect !');
                 return redirect()->route('authentification')->with('status', 'Login ou mot de passe incorrect !');
             }
         }
 
-       // emotify('error', 'Login ou mot de passe incorrect !');
-        // notify()->error('Login ou mot de passe incorrect ! , ou verifier si vous avez bien selectionner votre role');
+        emotify('error', 'Login ou mot de passe incorrect !');
         return redirect()->route('authentification')->with('status', 'Login ou mot de passe incorrect !');
     }
 

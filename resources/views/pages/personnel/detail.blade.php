@@ -71,11 +71,7 @@
                                 </a>
                                 <a class="list-group-item list-group-item-action" href="">
                                     <i class="fas fa-print fa-fw text-success me-2"></i>
-                                    Imprimer le contrat
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="">
-                                    <i class="fas fa-print fa-fw text-success me-2"></i>
-                                    Imprimer contrat de travail
+                                    Imprimer le contrat de travail
                                 </a>
                                 <a class="list-group-item list-group-item-action" href="">
                                     <i class="fas fa-print fa-fw text-success me-2"></i>

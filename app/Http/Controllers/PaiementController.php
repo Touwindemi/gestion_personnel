@@ -34,6 +34,7 @@ class PaiementController extends Controller
     {
         Paiement::create($request->all());
 
+        emotify('success', 'Paiement effectué avec success !');
         return redirect()->route('gestion_paiement.index');
     }
 
