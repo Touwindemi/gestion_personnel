@@ -86,7 +86,7 @@
                         </table>
                         <!-- Modals pour chaque mission -->
                         @foreach ($collection as $item)
-                            <div class="modal fade" id="missionDetailsModal{{ $item->id }}" tabindex="-1"
+                            <div class="modal fade" id="missionDetailsModal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="missionDetailsModalLabel{{ $item->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
@@ -99,20 +99,52 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <p><strong>Code:</strong> {{ $item->code }}</p>
-                                                    <p><strong>Intitulé de la mission:</strong> {{ $item->lib }}</p>
-                                                    <p><strong>Consigne:</strong> {{ $item->consigne }}</p>
-                                                    <p><strong>Date début:</strong> {{ $item->date_debut }}</p>
-                                                    <p><strong>Date de signature:</strong> {{ $item->date_signature }}</p>
-                                                    <p><strong>Date fin:</strong> {{ $item->date_fin }}</p>
-                                                    <p><strong>Lieu:</strong> {{ $item->lieu }}</p>
+                                                    <h6 class="text-center"><strong class="text-danger">Information de la mission:</strong></h6>
+                                                    <table class="table table-striped table-bordered" style="width: 100%;">
+                                                        <tr>
+                                                            <th>Code</th>
+                                                            <td>{{ $item->code }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Intitulé de la mission</th>
+                                                            <td>{{ $item->lib }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Consigne</th>
+                                                            <td>{{ $item->consigne }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Date début</th>
+                                                            <td>{{ $item->date_debut }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Date de signature</th>
+                                                            <td>{{ $item->date_signature }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Date fin</th>
+                                                            <td>{{ $item->date_fin }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Lieu</th>
+                                                            <td>{{ $item->lieu }}</td>
+                                                        </tr>
+                                                    </table>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <h6><strong>Personnels associés:</strong></h6>
+                                                    <h6 class="text-center"><strong class="text-danger">Personnels associés:</strong></h6>
                                                     <ul>
                                                         @foreach ($item->personnels as $personnel)
-                                                            <li>{{ $personnel->nom }} {{ $personnel->prenom }} -
-                                                                {{ $personnel->fonction }}</li>
+                                                                <table class="table table-striped table-bordered" style="width: 100%;">
+                                                                    <tr>
+                                                                        <th>Nom</th>
+                                                                        <td>{{ $personnel->nom }} {{ $personnel->prenom }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Role</th>
+                                                                        <td>{{ $personnel->fonction }}</td>
+                                                                    </tr>
+                                                                </table>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -121,11 +153,11 @@
                                             <!-- Ajouter ici d'autres champs pertinents si nécessaire -->
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Fermer</button>
-
-                                                <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Imprimer</button>
+                                            <div class="mt-3">
+                                                <button type="button" class="btn btn-success">Fiche de la mission</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-bs-dismiss="modal">Fermer</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

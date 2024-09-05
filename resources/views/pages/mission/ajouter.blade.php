@@ -12,7 +12,7 @@
                             GESTION DES MISSIONS
                         </h1>
                         <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success" href="{{ route('gestion_personnel.index') }}">
+                            <a class="btn btn-success" href="{{ route('gestion_mission.index') }}">
                                 Liste des missions
                             </a>
                         </div>
@@ -185,7 +185,7 @@
                 </div>
             </div>
             <div class="col-lg-12 text-right">
-                <button type="button" class="btn btn-danger remove-personnel">Supprimer</button>
+                <button type="button" class="btn btn-danger remove-personnel">X</button>
             </div>
         `;
 

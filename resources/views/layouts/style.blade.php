@@ -22,3 +22,10 @@
 <script data-search-pseudo-elements="" defer="" src="{{ asset('bootstrap/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{ asset('bootstrap/cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{ asset('bootstrap/js/jquery-3.5.1.js') }}"></script>
+
+<style>
+	.border_dotted{
+		border-bottom: 2px solid black;
+		border-bottom-style: dotted;
+	}
+</style>

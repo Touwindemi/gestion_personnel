@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContratController;
 use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\PersonnelController;
 
 /*
@@ -32,3 +33,4 @@ Route::get('imprimer_contrat/{id}', [ContratController::class, 'print']);
 Route::resource('gestion_personnel', PersonnelController::class);
 Route::resource('gestion_mission', MissionController::class);
 Route::resource('gestion_contrat', ContratController::class);
+Route::resource('gestion_paiement', PaiementController::class);

@@ -1,29 +1,91 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container-xl px-4 mt-4">
+    <header class="page-header page-header-dark pb-10"
+    style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+        <div class="container-xl px-4">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                            Fiche de l'agent N°: {{ $finds->id }}
+                        </h1>
+                        <div class="page-header-subtitle mt-4">
+                            Fiche Métier Agent Matricule: {{ $finds->matricule }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-auto mt-4">
+                        <div class="input-group input-group-joined border-0" style="width: 16.5rem">
+                            <span class="input-group-text"><i class="text-primary" data-feather="calendar"></i></span>
+                            <div class="form-control ps-0 pointer">
+                                {{ Carbon\Carbon::now()->format('d-m-Y') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-xl px-4 mt-n10">
         <div class="row">
             <div class="col-xl-4">
-                <!-- Profile picture card-->
-                <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
-                    <div class="card-body">
-                        <!-- Profile picture image-->
-                        <div class="d-flex justify-content-center">
-                            @if ($finds->photo == '')
-                                <img class="img-account-profile rounded-circle mb-2"
-                                    src="{{ asset('asset/assets/img/demo/user-placeholder.svg') }}" alt="logo user" />
-                            @else
-                                <img class="img-account-profile rounded-circle mb-2"
-                                    src="{{ asset('storage') . '/' . $finds->photo }}" alt="logo user" />
-                            @endif
+                <div class="row">
+                    <div class="col-xl-12">
+                        <!-- Profile picture card-->
+                        <div class="card mb-4 mb-xl-0">
+                            <div class="card-header">Photo d'agent</div>
+                            <div class="card-body">
+                                <!-- Profile picture image-->
+                                <div class="d-flex justify-content-center">
+                                    @if ($finds->photo == '')
+                                        <img class="img-account-profile rounded-circle mb-2"
+                                            src="{{ asset('asset/assets/img/demo/user-placeholder.svg') }}"
+                                            alt="logo user" />
+                                    @else
+                                        <img class="img-account-profile mb-2" style="border-radius: 5px"
+                                            src="{{ asset('storage') . '/' . $finds->photo }}" alt="logo user" />
+                                    @endif
+                                </div>
+                                <!-- Profile picture help block-->
+                                <div class="small font-italic text-muted mb-4 text-center">Matricle : {{ $finds->matricule }}</div>
+                                <!-- Profile picture upload button-->
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#formBackdrop">Changer la photo</button>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4 text-center">{{ $finds->matricule }}</div>
-                        <!-- Profile picture upload button-->
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                                data-bs-target="#formBackdrop">Changer la photo</button>
+                    </div>
+                    <div class="col-xl-12 mt-3">
+                        <div class="card mb-4">
+                            <div class="card-header">Plus d'actions</div>
+                            <div class="list-group list-group-flush small">
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                                    Modifier l'agent
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-user fa-fw text-primary me-2"></i>
+                                    Fiche agent
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-print fa-fw text-success me-2"></i>
+                                    Imprimer le contrat
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-print fa-fw text-success me-2"></i>
+                                    Imprimer contrat de travail
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-print fa-fw text-success me-2"></i>
+                                    Imprimer attestation de travail
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="">
+                                    <i class="fas fa-close fa-fw text-danger me-2"></i>
+                                    Supprimer l'agent
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,13 +171,15 @@
                                 <div class="col-lg-4 col-md-12">
                                     <div class="mb-3">
                                         <label>Père</label>
-                                        <input class="form-control" type="text" value="{{ $finds->pere }}" readonly />
+                                        <input class="form-control" type="text" value="{{ $finds->pere }}"
+                                            readonly />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="mb-3">
                                         <label>Mère</label>
-                                        <input class="form-control" type="text" value="{{ $finds->mere }}" readonly />
+                                        <input class="form-control" type="text" value="{{ $finds->mere }}"
+                                            readonly />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
@@ -214,21 +278,6 @@
                                         <label>Charge UITS</label>
                                         <input class="form-control" type="text" value="{{ $finds->charge_uts }}"
                                             readonly />
-                                    </div>
-                                </div>
-                                <!-- Form Group (email address)-->
-                                <div class="row text-center mt-5">
-                                    <div class="col-lg-4">
-                                        <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#formPasswordBackdrop">Modifier</button>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <button class="btn btn-danger" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#formPasswordBackdrop">Supprimer</button>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <button class="btn btn-success" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#formPasswordBackdrop">Imprimer</button>
                                     </div>
                                 </div>
                         </form>

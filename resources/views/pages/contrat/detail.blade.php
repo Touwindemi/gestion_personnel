@@ -1,25 +1,54 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container-xl px-4 mt-4">
+    <header class="page-header page-header-dark pb-10"
+    style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+        <div class="container-xl px-4">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                            Fiche du contrat N°: {{ $finds->id }}
+                        </h1>
+                        <div class="page-header-subtitle mt-4">
+                           <br>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-auto mt-4">
+                        <div class="input-group input-group-joined border-0" style="width: 16.5rem">
+                            <span class="input-group-text"><i class="text-primary" data-feather="calendar"></i></span>
+                            <div class="form-control ps-0 pointer">
+                                {{ Carbon\Carbon::now()->format('d-m-Y') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-xl px-4 mt-n10">
         <div class="row">
             <div class="col-xl-4">
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
+                    <div class="card-header">Agent</div>
                     <div class="card-body">
                         <!-- Profile picture image-->
                         <div class="d-flex justify-content-center">
-                            @if ($finds->photo == '')
-                                <img class="img-account-profile rounded-circle mb-2"
+                            @if ($finds->Agent->photo == '')
+                                <img class="img-account-profile mb-2" style="border-radius: 5px"
                                     src="{{ asset('asset/assets/img/demo/user-placeholder.svg') }}" alt="logo user" />
                             @else
-                                <img class="img-account-profile rounded-circle mb-2"
+                                <img class="img-account-profile mb-2" style="border-radius: 5px"
                                     src="{{ asset('storage') . '/' . $finds->Agent->photo }}" alt="logo user" />
                             @endif
                         </div>
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4 text-center">{{ $finds->Agent->matricule }}</div>
+                        <div class="small font-italic text-muted mb-4 text-center">
+                            <h5>{{ $finds->Agent->nom }} {{ $finds->Agent->prenom }}</h5>
+                            <h5>Matricule : {{ $finds->Agent->matricule }}</h5>
+                        </div>
                         <!-- Profile picture upload button-->
                     </div>
                 </div>
@@ -29,121 +58,29 @@
                 <div class="card mb-4">
                     <div class="card-header">Detail du contrat</div>
                     <div class="card-body">
-                        <form>
-                            <!-- Form Row-->
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>N° sécurité sociale</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->num_secu_social }}"
-                                            readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Nom</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->nom }}" readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Prénoms</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->prenom }}" readonly />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Date de maissance</label>
-                                        <input class="form-control" type="date" value="{{ $finds->Agent->date_nais }}"
-                                            readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Genre</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->genre }}" readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Résidence</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->residence }}"
-                                            readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Date d'embauche</label>
-                                        <input class="form-control" type="date" value="{{ $finds->Agent->date_embauche }}"
-                                            readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Catégorie</label>
-                                        <input class="form-control" type="text" value="{{ $finds->Agent->categorie }}"
-                                            readonly />
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label>Téléphone</label>
-                                        <input class="form-control" type="number" value="{{ $finds->Agent->telephone }}"
-                                            readonly />
-                                    </div>
-                                </div>
-
-
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="mb-3">
-                                            <label>Code</label>
-                                            <input class="form-control" type="text" value="{{ $finds->code }}"
-                                                readonly />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="mb-3">
-                                            <label>Nature</label>
-                                            <input class="form-control" type="text" value="{{ $finds->nature }}" readonly />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="mb-3">
-                                            <label>Statut</label>
-                                            <input class="form-control" type="text" value="{{ $finds->statut }}" readonly />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-    
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="mb-3">
-                                            <label>Date de signature</label>
-                                            <input class="form-control" type="date" value="{{ $finds->date_signature }}"
-                                                readonly />
-                                        </div>
-                                    </div>
-                                    
-                                <!-- Form Group (email address)-->
-                                <div class="row text-center mt-5">
-                                    <div class="col-lg-4">
-                                        <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#formPasswordBackdrop">Modifier</button>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <button class="btn btn-danger" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#formPasswordBackdrop">Supprimer</button>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <a class="btn btn-success" type="button" href="{{ url('imprimer_contrat/' . $finds->id) }}">Imprimer</a>
-                                    </div>
-                                </div>
-                        </form>
+                        <table class="table table-striped table-bordered" style="width: 100%;">
+                            <tr>
+                                <th>Code</th>
+                                <td>{{ $finds->code }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nature</th>
+                                <td>{{ $finds->nature }}</td>
+                            </tr>
+                            <tr>
+                                <th>Statut</th>
+                                <td>{{ $finds->statut }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de signature</th>
+                                <td>{{ $finds->date_signature }}</td>
+                            </tr>
+                        </table>
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-warning">Modifier</button>
+                            <a class="btn btn-success" type="button" href="{{ url('imprimer_contrat/' . $finds->id) }}" target="_blank">Imprimer</a>
+                            <button type="button" class="btn btn-danger">Supprimer</button>
+                        </div>
                     </div>
                 </div>
             </div>

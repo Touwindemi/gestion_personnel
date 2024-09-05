@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contrat;
-use App\Models\Personnel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ContratController extends Controller
+class DepenseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // on doit compacter les données de la table personnel à la vue appelée d'ou compact('collection')
-        $collection = Contrat::latest()->get();
-        $personnels = Personnel::all();
-        return view('pages.contrat.liste', compact('collection', 'personnels'));
+        //
     }
 
     /**
@@ -24,8 +20,7 @@ class ContratController extends Controller
      */
     public function create()
     {
-        $personnels = Personnel::all();
-        return view('pages.contrat.engagement', compact('personnels'));
+        //
     }
 
     /**
@@ -33,9 +28,7 @@ class ContratController extends Controller
      */
     public function store(Request $request)
     {
-        Contrat::create($request->all());
-
-        return redirect()->route('gestion_contrat.index');
+        //
     }
 
     /**
@@ -43,19 +36,8 @@ class ContratController extends Controller
      */
     public function show(string $id)
     {
-        $finds = Contrat::find($id);
-        return view('pages.contrat.detail', compact('finds'));
+        //
     }
-
-  /**
-     * Display the specified resource.
-     */
-    public function print(string $id)
-    {
-        $finds = Contrat::find($id);
-        return view('pages.contrat.impression', compact('finds'));
-    }
-
 
     /**
      * Show the form for editing the specified resource.

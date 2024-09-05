@@ -26,7 +26,7 @@
             <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
                 aria-labelledby="navbarDropdownUserImage">
                 <h6 class="dropdown-header d-flex align-items-center">
-                    <img class="dropdown-user-img" src="{{ asset('images/conn2.jpg') }}" />
+                    <img class="dropdown-user-img" src="{{ asset('images/undraw_Male_avatar_g98d.png') }}" />
                     <div class="dropdown-user-details">
                         <div class="dropdown-user-details-name">{{ Auth::user()->nom }}</div>
                         <div class="dropdown-user-details-email">

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Contrat;
-use App\Models\Personnel;
+use App\Models\Paiement;
 use Illuminate\Http\Request;
 
-class ContratController extends Controller
+class PaiementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // on doit compacter les données de la table personnel à la vue appelée d'ou compact('collection')
-        $collection = Contrat::latest()->get();
-        $personnels = Personnel::all();
-        return view('pages.contrat.liste', compact('collection', 'personnels'));
+        $collection = Paiement::latest()->get();
+        $contrats = Contrat::latest()->get();
+        return view('pages.paiement.liste', compact('collection', 'contrats'));
     }
 
     /**
@@ -24,8 +24,7 @@ class ContratController extends Controller
      */
     public function create()
     {
-        $personnels = Personnel::all();
-        return view('pages.contrat.engagement', compact('personnels'));
+        //
     }
 
     /**
@@ -33,9 +32,9 @@ class ContratController extends Controller
      */
     public function store(Request $request)
     {
-        Contrat::create($request->all());
+        Paiement::create($request->all());
 
-        return redirect()->route('gestion_contrat.index');
+        return redirect()->route('gestion_paiement.index');
     }
 
     /**
@@ -43,19 +42,9 @@ class ContratController extends Controller
      */
     public function show(string $id)
     {
-        $finds = Contrat::find($id);
-        return view('pages.contrat.detail', compact('finds'));
+        $finds = Paiement::find($id);
+        return view('pages.paiement.detail', compact('finds'));
     }
-
-  /**
-     * Display the specified resource.
-     */
-    public function print(string $id)
-    {
-        $finds = Contrat::find($id);
-        return view('pages.contrat.impression', compact('finds'));
-    }
-
 
     /**
      * Show the form for editing the specified resource.
